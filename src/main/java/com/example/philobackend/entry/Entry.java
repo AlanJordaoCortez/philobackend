@@ -17,6 +17,8 @@ public class Entry {
     private LocalDate entryDate;
     private String text;
 
+    public Entry() {}
+    
     public Entry(String title, LocalDate entryDate, String text) {
         this.title = title;
         this.entryDate = entryDate;
