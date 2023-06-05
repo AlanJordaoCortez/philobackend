@@ -23,4 +23,17 @@ public class EntryService {
         entryRepo.save(entry);
         return "success";
     }
+
+    public void removeEntry(Long id) {
+        entryRepo.deleteById(id);
+    }
+
+    public Entry editEntryText(Long id, String newText) {
+        Optional<Entry> toBeEdit = entryRepo.findById(id);
+        if(toBeEdit.isPresent()) {
+            toBeEdit.get().setText(newText);
+            entryRepo.save(toBeEdit.get());
+        }
+        return toBeEdit.get();
+    }
 }
